@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Linear Regression</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="form-container" id="calculate-form">
+                <div class="header">
+                    <img src="../static/images/logo.svg" alt="logo">
+                    <h1>حساب سعر العقار</h1>
+                </div>
+                <form class="form calculate" id="form">
+                    <div class="input-container">
+                        <input type="number" id="rooms" name="rooms" placeholder="عدد الغرف">
+                        <input type="number" id="baths" name="baths" placeholder="عدد دورات المياه">
+                        <input type="number" id="size" name="size" placeholder="المساحة بالمتر المربع">
+                        <select name="district" id="district">
+                        </select>
+                    </div>
+                    <div class="btn-container">
+                        <button type="submit" class="btn">إرسال</button>
+                    </div>
+                </form>
+            </div>
+            <div class="image-container" id="result-container">
+                <div class="result">
+                    <h1>السعر المتوقع</h1>
+                    <div class="circle-big">
+                        <div class="text"> <span id="predictedPrice"></span>
+                            <div class="small">ريال</div>
+                        </div>
+                        <svg>
+                            <circle class="bg" cx="57" cy="57" r="52"></circle>
+                            <circle class="progress" cx="57" cy="57" r="52"></circle>
+                        </svg>
+                    </div>
+                </div>
+
+                <img src="../static/images/we-removebg-preview.png" class="we" width="100%" alt="">
+            </div>
+    </main>
+
+    <script>
+        districts = ['أحد', 'اخرى', 'الاندلس', 'البديعة', 'الجرادية', 'الخالدية', 'الخليج', 'الدار', 'الديرة', 'الرمال', 'السعادة', 'السويدي', 'الشرق', 'الشميسي', 'الصالحية', 'العريجاء', 'العزيزية', 'العيينة', 'الفوطة', 'الفيحاء', 'المرقب', 'المروة', 'الملز', 'الندوة', 'النسيم', 'النظيم', 'اليمامة', 'ام', 'بدر', 'ديراب', 'طويق', 'ظهرة', 'عتيقة', 'غبيرة', 'منفوحة']
+        menu = document.getElementById("district")
+        districts.forEach(dist => {
+            option = document.createElement("option")
+            option.innerText = dist
+            option.value = dist
+            menu.appendChild(option)
+        });
+
+        document.getElementById("form").onsubmit = (e) => {
+            e.preventDefault();
+            var rooms = document.getElementById("rooms").value;
+            var baths = document.getElementById("baths").value;
+            var size = document.getElementById("size").value;
+            var district = document.getElementById("district").value;
+
+            if (rooms && baths && size && district) {
+                fetch("predict", {
+                    method: "POST",
+                    body: new FormData(form)
+                }).then(response => {
+                    return response.json()
+                }).then(data => {
+                    document.getElementById("result-container").style.display = "flex"
+                    document.getElementById("predictedPrice").innerText = data["result"]
+                });
+            } else {
+                alert("فضلاً أكمل جميع الخانات")
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

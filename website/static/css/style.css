@@ -1,0 +1,247 @@
+* {
+    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #90a58f;
+}
+
+main {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 100vh;
+    min-height: 650px;
+}
+
+.container {
+    background-color: #fff;
+    display: flex;
+    width: 60%;
+    margin: auto;
+    justify-content: center;
+    font-size: 14px;
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
+    border-radius: 10px;
+    height: 80%;
+}
+
+.form-container {
+    flex: 2;
+}
+
+.image-container {
+    flex: 1;
+    /* background-image: url("../images/bg.png");
+    background-size: cover; */
+    background-color: #293340;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-top: 5%;
+}
+
+.we {
+    position: absolute;
+    bottom: 0;
+}
+
+.image-container h1 {
+    color: #f3f3f3;
+}
+
+/* form side */
+
+.form-container {
+    padding: 25px 0px 0px 0px;
+}
+
+.form-container, .header, .input-container, .btn-container {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.form {
+    width: 100%;
+}
+
+.header, .input-container, .btn-container {
+    -webkit-box-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+
+.btn-container p {
+    margin: 5px 0;
+}
+
+/* logo and header */
+
+.header img {
+    width: 120px;
+    margin: 0 0 20px 0;
+}
+
+.header h1 {
+    color: #31842c;
+    font-size: 25px;
+}
+
+.header {
+    margin-bottom: 20px;
+}
+
+/* form */
+
+.input-container, .btn-container {
+    width: 100%;
+}
+
+.input-container input, select {
+    width: 60%;
+    padding: 3px 10px;
+    border: none;
+    outline: none;
+    border-bottom: 1px solid #e8e8e8;
+    margin: 15px 0px;
+}
+
+.form {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-box-flex: 2;
+    -ms-flex: 2;
+    flex: 2;
+}
+
+.btn {
+    background: #458c3a;
+    width: 60%;
+    height: 40px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    color: #eee;
+    font-family: "Montserrat", sans-serif;
+    font-size: 16px;
+    opacity: 0.9;
+    cursor: pointer;
+    margin: 10px 0px;
+}
+
+.btn:hover {
+    opacity: 1;
+}
+
+.circle-big {
+    position: relative;
+    width: 114px;
+    height: 114px;
+    margin: 30px auto 25px auto;
+}
+
+.circle-big svg {
+    width: 114px;
+    height: 114px;
+}
+
+.circle-big .bg {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #808b7e;
+}
+
+.circle-big .progress {
+    fill: none;
+    stroke-width: 10px;
+    stroke: #458c3a;
+    stroke-linecap: round;
+    stroke-dasharray: 326.56;
+    stroke-dashoffset: 0;
+    transform: rotate(-90deg);
+    transform-origin: 50% 50%;
+    animation: big 1.5s ease-in-out;
+}
+
+.circle-big .text {
+    position: absolute;
+    width: 100%;
+    top: 37px;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+    line-height: 22px;
+    color: white;
+}
+
+.circle-big .text .small {
+    font-size: 14px;
+    color: #fff;
+}
+
+@keyframes big {
+    from {
+        stroke-dashoffset: 326.56;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* responsive */
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: 90%;
+        height: 90%;
+    }
+    .image-container {
+        display: none;
+    }
+    .header img {
+        width: 130px;
+    }
+    .header h1 {
+        font-size: 25px;
+    }
+    .form.calculate {
+        -webkit-box-flex: 3;
+        -ms-flex: 3;
+        flex: 3;
+        justify-content: space-around;
+    }
+    .input-container input, .btn-container button, select {
+        width: 80%;
+    }
+    .header, .input-container, .btn-container {
+        flex: 0;
+    }
+}
+
+/*# sourceMappingURL=registrationStyle.css.map */
